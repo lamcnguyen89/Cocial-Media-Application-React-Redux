@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const path = require("path");
 const mongoose = require("mongoose");
+const passport = require('passport');
 const bodyParser = require('body-parser');
 const db = require('./config/keys').MONGO_URI;
 const auth = require('./routes/api/authRoute');
@@ -25,7 +26,11 @@ mongoose
     .catch(err => console.log(err));
 
 
-app.get('/', (req, res) => res.send('Death!!!!!'));
+// Passport Middleware:
+app.use(passport.initialize());
+
+//Passport Config
+require('./config/passport')(passport)
 
 // Use Routes:
 app.use('/api/auth', auth); 
