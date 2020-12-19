@@ -1,4 +1,8 @@
 module.exports = {
-    MONGO_URI: process.env.MONGODB_URI || process.env.DATABASE_INFO,
-    JWT_SECRET: process.env.JWT_SECRET
-}
+    MONGO_URI: 'mongodb://localhost/socialmedia',
+    secretOrKey: 'secret'
+  };
+// module.exports = {
+//     MONGO_URI: process.env.MONGODB_URI || process.env.DATABASE_INFO,
+//     secretOrKey: process.env.JWT_SECRET
+// }
