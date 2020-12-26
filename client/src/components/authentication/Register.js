@@ -24,6 +24,13 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+   // Check to see if logged in. If you are, redirect to dashboard, not login or register:
+   componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.errors) {
       this.setState({errors: nextProps.errors});
