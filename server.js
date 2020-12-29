@@ -11,7 +11,7 @@ const posts = require("./routes/api/posts");
 
 const app = express();
 
-// Body parser middleware
+// Body-Parser middleware. This middleware will allow the application to pick up text inputs from the web browser and translate them to serverside requests:
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -41,4 +41,4 @@ app.use("/api/posts", posts);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
