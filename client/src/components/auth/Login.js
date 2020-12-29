@@ -49,7 +49,7 @@ class Login extends Component {
   }
 
   render() {
-    const { errors } = this.state;
+    const { errors } = this.state; // This destructuring is the same as const errors = this.state.errors.
 
     return (
       <div className="login">
@@ -88,12 +88,14 @@ class Login extends Component {
   }
 }
 
+// Classifies the type of prop that was brought in from the store. Why this has to be a separate function? I don't know... Seems to just make things more confusing.
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 
+// Brings these state properties in from the reducer and store.
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors

@@ -39,10 +39,12 @@ class Landing extends Component {
   }
 }
 
+// Classifies the type of prop that was brought in from the store. Why this has to be a separate function? I don't know... Seems to just make things more confusing.
 Landing.propTypes = {
   auth: PropTypes.object.isRequired
 };
 
+// Brings these state properties in from the reducer and store.
 const mapStateToProps = state => ({
   auth: state.auth
 });

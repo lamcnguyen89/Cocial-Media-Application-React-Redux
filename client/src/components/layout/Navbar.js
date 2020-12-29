@@ -13,7 +13,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { isAuthenticated, user } = this.props.auth; // This destructuring is the same as const isAuthenticated = this.props.auth.isAuthenticated and const user = this.props.auth.user
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
@@ -88,11 +88,13 @@ class Navbar extends Component {
   }
 }
 
+// Classifies the type of prop that was brought in from the store. Why this has to be a separate function? I don't know... Seems to just make things more confusing.
 Navbar.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
+// Brings these state properties in from the reducer and store.
 const mapStateToProps = state => ({
   auth: state.auth
 });

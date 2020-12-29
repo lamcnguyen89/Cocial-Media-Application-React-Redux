@@ -16,8 +16,8 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { user } = this.props.auth;
-    const { profile, loading } = this.props.profile;
+    const { user } = this.props.auth; // This destructuring is the same as const user = this.props.auth.user
+    const { profile, loading } = this.props.profile; // This destructuring is the same as const profile = this.props.profile.profile and const loading = this.props.profile.loading
 
     let dashboardContent;
 
@@ -67,6 +67,7 @@ class Dashboard extends Component {
   }
 }
 
+// Classifies the type of prop that was brought in from the store. Why this has to be a separate function? I don't know... Seems to just make things more confusing.
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
@@ -74,6 +75,7 @@ Dashboard.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
+// Brings these state properties in from the reducer and store.
 const mapStateToProps = (state) => ({
   profile: state.profile,
   auth: state.auth,
