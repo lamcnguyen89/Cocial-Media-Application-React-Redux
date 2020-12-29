@@ -1,6 +1,4 @@
 module.exports = {
-  MONGO_URI: "mongodb://localhost/devconnector",
-  secretOrKey: "secret"
+  MONGO_URI: process.env.DATABASE,
+  secretOrKey: process.env.JWT_SECRET,
 };
-
-

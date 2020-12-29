@@ -1,4 +1,5 @@
 
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -19,7 +20,11 @@ const db = require("./config/keys").MONGO_URI;
 
 // Connect to MongoDB
 mongoose
-  .connect(db)
+  .connect(db,
+    { useNewUrlParser: true, 
+      useUnifiedTopology: true, 
+      useCreateIndex: true, 
+      useFindAndModify: true })
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
