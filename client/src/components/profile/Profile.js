@@ -18,14 +18,42 @@ class Profile extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <ProfileHeader />
-        <ProfileAbout />
-        <ProfileCreds />
-        <ProfileGithub />
-      </div>
-    );
+    const { profile, loading } = this.props.profile; // This destructuring is the same as "const profile = this.props.profile.profile" and "const loading= this.props.profile.loading"
+    let profileContent;
+
+    if (profile === null || loading) {
+      profileContent = <Spinner />;
+    } else {
+      profileContent = (
+        <div>
+          <div className="row">
+            <div className="col-md-6">
+              <Link to="/profiles" className="btn btn-light mb-3 float-left">
+                Back to Profiles
+              </Link>
+            </div>
+            <div className="col-md-6" />
+            <ProfileHeader profile={profile} />
+            <ProfileAbout />
+            <ProfileCreds />
+            <ProfileGithub />
+          </div>
+        </div>
+      );
+    }
+
+    return(
+        <div className="profile">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        {profileContent}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    ) 
   }
 }
 
