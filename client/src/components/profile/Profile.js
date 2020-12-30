@@ -34,26 +34,26 @@ class Profile extends Component {
             </div>
             <div className="col-md-6" />
             <ProfileHeader profile={profile} />
-            <ProfileAbout />
-            <ProfileCreds />
+            <ProfileAbout profile={profile} />
+            <ProfileCreds
+              education={profile.education}
+              experience={profile.experience}
+            />
             <ProfileGithub />
           </div>
         </div>
       );
     }
 
-    return(
-        <div className="profile">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        {profileContent}
-                    </div>
-                </div>
-            </div>
+    return (
+      <div className="profile">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">{profileContent}</div>
+          </div>
         </div>
-
-    ) 
+      </div>
+    );
   }
 }
 
