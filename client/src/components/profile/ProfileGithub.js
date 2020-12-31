@@ -6,7 +6,7 @@ class ProfileGithub extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clientid: "96a89192875d322a3858",
+      clientId: "96a89192875d322a3858",
       clientSecret: "e819585d3ff41f84a0274b3ae4ffeceb641d35a5",
       count: 5,
       sort: "created: asc",
@@ -19,22 +19,21 @@ class ProfileGithub extends Component {
     const { count, sort, clientId, clientSecret } = this.state;
 
     fetch(
-      `https://api.github.com/users/${username}/repose?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`
+      `https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`
     )
-      .then((res) => res.json())
-      .then((data) => {
-        if(this.refs.myRef) {
+      .then(res => res.json())
+      .then(data => {
+        if (this.refs.myRef) {
           this.setState({ repos: data });
         }
-
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   }
 
   render() {
     const { repos } = this.state;
 
-    const repoItems = repos.map((repo) => (
+    const repoItems = repos.map(repo => (
       <div key={repo.id} className="card card-body mb-2">
         <div className="row">
           <div className="col-md-6">
@@ -70,7 +69,7 @@ class ProfileGithub extends Component {
 }
 
 ProfileGithub.propTypes = {
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 };
 
 export default ProfileGithub;
