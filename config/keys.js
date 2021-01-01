@@ -1,4 +1,5 @@
-module.exports = {
-  MONGO_URI: process.env.DATABASE,
-  secretOrKey: process.env.JWT_SECRET,
-};
+if(process.env.NODE_ENV === 'production') {
+  module.exports = require('./keys_prod');
+} else {
+  module.exports = require('./keys_dev');
+}

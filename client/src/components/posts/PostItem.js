@@ -34,13 +34,14 @@ class PostItem extends Component {
       <div className="card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
-            <a href="profile.html">
+          
               <img
                 className="rounded-circle d-none d-md-block"
                 src={post.avatar}
+                style={{ width: "50px", height: '50px' }}
                 alt=""
               />
-            </a>
+            
             <br />
             <p className="text-center">{post.name}</p>
           </div>
@@ -108,6 +109,9 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, { deletePost, addLike, removeLike })(
   PostItem
 );
+
+
+
 
 
 
