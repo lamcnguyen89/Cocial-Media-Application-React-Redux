@@ -6,6 +6,10 @@ A Social media application built with React, Redux and a MongoDB back-end. You c
 
 To run application, start a terminal in the root of the application where the server.js is located. Then type npm run dev.
 
+## Credit Goes to:
+
+- Brad Traversy and his Udemy course: MERN stack Front To Back Full Stack React, Redux and Node.js which can be purchased [here](https://www.udemy.com/course/mern-stack-front-to-back/).
+
 ## Prerequisites and Deployment
 
 - Installation of Web Browser to view webpage
